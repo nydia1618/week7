@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+threadhive-backend/node_modules
+threadhive-frontend/node_modules
