@@ -12,6 +12,7 @@ function Login() {
   const [info, setInfo] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const {loginUser}=useAuth();
 
   useEffect(() => {
     // Check if user was redirected due to expired token
@@ -26,6 +27,19 @@ function Login() {
 
   const handleSubmit = async (e) => {
     //Your Code Here
+    e.preventDefault();
+    setLoading(true);
+    try{
+      const data = await login(form)// we will pass the data from the form
+      loginUser(data);
+      window.alert('Successful Login');
+      navigate("/home");
+    }catch(err){
+        window.alert("Login failed");
+    }
+    finally{ //este corre si falla o pasa el try catch.
+      setLoading(false);
+    }
   };
 
   return (

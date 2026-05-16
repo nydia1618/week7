@@ -11,7 +11,8 @@ import "./App.css";
 
 function App() {
   return (
-    <AuthProvider>
+    <AuthProvider> {/* This is the step 1: Wrap the <BrowserRouter> in App.jsx with the AuthProvider component from AuthContext to
+provide auth state to the entire app*/}
       <BrowserRouter>
         <div className="app-layout">
           <Header />

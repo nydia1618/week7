@@ -6,7 +6,7 @@ import "./Header.css";
 function Header() {
   const navigate = useNavigate();
   // const { token, user } = { token: null, user: null }; // Placeholder, replace with useAuth()
-  const { token, user, logout} = useAuth()
+  const { token, user, logout} = useAuth() // we destructure
   const handleLogin = () => {
     // Your Code Here
     navigate("/login");

@@ -11,11 +11,18 @@ export default function Home() {
 
   useEffect(() => {
     const loadThreads = async () => {
-      // Your Code Here
+      // Your Code Here to fetch the threads
+      try{
+        const data = await fetchRecentThreads();
+        setThreads(data);
+      }catch (err){
+        setError("Failed to fetch threads");
+      }
+
     };
 
     loadThreads();
-  }, []);
+  }, []); //this code will run only when the page loads
 
   const handleVoteUpdate = (threadId, newVoteCount) => {
     setThreads(
